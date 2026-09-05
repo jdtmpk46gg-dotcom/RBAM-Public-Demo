@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RBAM Controlled Public Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">RBAM · Reality-Based Appraisal Model</div>
+      <h1>Controlled Public Demo</h1>
+      <p class="sub">Evidence-governed operational intelligence · simulation only</p>
+    </div>
+    <div class="status"><span></span> PUBLIC DEMO</div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero card">
+      <div>
+        <h2>A system without memory reacts.<br/>A system with governed memory can appraise.</h2>
+        <p>RBAM compares current simulated observations with historical context to produce a traceable operational appraisal—without exposing proprietary scoring, retrieval, arbitration, or learning mechanisms.</p>
+      </div>
+      <div class="tree-box">
+        <div class="tree">🌳</div>
+        <div><strong>Tree analogy</strong><br/>Night is a disturbance, not proof the sun is gone. Context prevents overreaction.</div>
+      </div>
+    </section>
+
+    <nav class="gridnav">
+      <button data-target="monitor" class="active">Monitor</button>
+      <button data-target="appraise">Appraise</button>
+      <button data-target="respond">Respond</button>
+      <button data-target="command">Command</button>
+      <button data-target="history">History</button>
+      <button data-target="analytics">Analytics</button>
+    </nav>
+
+    <section id="monitor" class="panel card show">
+      <div class="panel-head"><div><div class="eyebrow">01 · MONITOR</div><h3>Current Observations</h3></div><span class="badge">SIMULATED</span></div>
+      <div class="metrics">
+        <div><span>Inlet Flow</span><strong id="inFlow">100</strong><small>m³/h</small></div>
+        <div><span>Outlet Flow</span><strong id="outFlow">98</strong><small>m³/h</small></div>
+        <div><span>Inlet Pressure</span><strong id="inPressure">5000</strong><small>kPa</small></div>
+        <div><span>Outlet Pressure</span><strong id="outPressure">4800</strong><small>kPa</small></div>
+      </div>
+      <div class="scenario-row">
+        <button onclick="runScenario('normal')">Normal</button>
+        <button onclick="runScenario('watch')">Watch</button>
+        <button onclick="runScenario('imbalance')">Possible imbalance</button>
+        <button onclick="runScenario('missing')">Missing signal</button>
+      </div>
+      <div class="note">This public demo uses fixed showcase scenarios. It does not expose proprietary appraisal weights or internal decision logic.</div>
+    </section>
+
+    <section id="appraise" class="panel card">
+      <div class="panel-head"><div><div class="eyebrow">02 · APPRAISE</div><h3>Traceable Appraisal</h3></div><span id="classBadge" class="badge">NO SUPPORTED IMBALANCE</span></div>
+      <div class="appraisal-layout">
+        <div class="score"><span>Evidence appraisal</span><strong id="score">32%</strong><small>illustrative demo score</small></div>
+        <div class="facts">
+          <div><span>Current pattern</span><strong id="pattern">Stable</strong></div>
+          <div><span>Historical context</span><strong id="historyContext">No concern pattern</strong></div>
+          <div><span>Evidence quality</span><strong id="quality">Complete</strong></div>
+          <div><span>Confidence language</span><strong id="confidenceText">Low concern</strong></div>
+        </div>
+      </div>
+      <div class="note">The score is a controlled demonstration output, not a validated probability of equipment failure.</div>
+    </section>
+
+    <section id="respond" class="panel card">
+      <div class="panel-head"><div><div class="eyebrow">03 · RESPOND</div><h3>Governed Response</h3></div><span class="badge">ADVISORY</span></div>
+      <div class="response-box" id="responseText">Continue observation. No simulated escalation is indicated.</div>
+      <div class="flow">Observation <b>→</b> Appraisal <b>→</b> Advisory response <b>→</b> Outcome recorded</div>
+      <div class="note">No PLC, SCADA, SIS, ESD, BOP, actuator, or physical machinery connection is present in this demo.</div>
+    </section>
+
+    <section id="command" class="panel card">
+      <div class="panel-head"><div><div class="eyebrow">04 · COMMAND</div><h3>Operator Acknowledgement</h3></div><span class="badge">SIMULATION</span></div>
+      <div class="scenario-row">
+        <button onclick="ack('Acknowledged')">Acknowledge</button>
+        <button onclick="ack('Review requested')">Request Review</button>
+        <button onclick="ack('Observation noted')">Add Note</button>
+      </div>
+      <div class="response-box" id="commandStatus">No simulated operator acknowledgement yet.</div>
+      <div class="note">Public demo command controls only update the on-screen simulation. They do not authorize or trigger physical actions.</div>
+    </section>
+
+    <section id="history" class="panel card">
+      <div class="panel-head"><div><div class="eyebrow">05 · HISTORY</div><h3>Operational Memory</h3></div><span class="badge">CONTEXT</span></div>
+      <table>
+        <thead><tr><th>Event</th><th>Context</th><th>Appraisal</th><th>Outcome</th></tr></thead>
+        <tbody id="historyRows">
+          <tr><td>Prior normal cycle</td><td>Stable flow</td><td>No concern</td><td>Returned to baseline</td></tr>
+          <tr><td>Prior watch pattern</td><td>Temporary deviation</td><td>Observe</td><td>Resolved without escalation</td></tr>
+        </tbody>
+      </table>
+      <div class="note">The demo shows the value of operational memory without revealing proprietary retrieval, similarity, weighting, or update mechanisms.</div>
+    </section>
+
+    <section id="analytics" class="panel card">
+      <div class="panel-head"><div><div class="eyebrow">06 · ANALYTICS</div><h3>Outcome Summary</h3></div><span class="badge">DEMO DATA</span></div>
+      <div class="metrics three">
+        <div><span>Scenarios run</span><strong id="runCount">0</strong></div>
+        <div><span>Watch / concern</span><strong id="concernCount">0</strong></div>
+        <div><span>Missing-data cases</span><strong id="missingCount">0</strong></div>
+      </div>
+      <div class="note">No autonomous policy mutation or hidden optimization is performed in this public demo.</div>
+    </section>
+
+    <section class="card boundary">
+      <div class="eyebrow">PUBLIC DISCLOSURE BOUNDARY</div>
+      <h3>What this demo intentionally does not reveal</h3>
+      <p>Exact scoring rules, evidence-fusion weights, historical retrieval logic, recurrence calculations, proprietary state-transition rules, exception/arbitration mechanisms, learning updates, and any post-freeze invention details remain outside this public build.</p>
+    </section>
+  </main>
+
+  <footer>RBAM Controlled Public Demo · Simulation / read-only concept demonstration · Not certified for physical equipment control</footer>
+  <script src="app.js"></script>
+</body>
+</html>
